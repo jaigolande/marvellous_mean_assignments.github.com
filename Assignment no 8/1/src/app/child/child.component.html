@@ -1,0 +1,10 @@
+<h1>Child component rendered</h1>
+
+<div class="form-group">
+    <label for="name">Input name </label>
+    <input type="text" class="form-control" [(ngModel)]="name1" #refValue>
+</div>
+<br>
+<button class="btn btn-success" (click)="sendToParent(refValue)">Click to display name in parent</button>
+
+<hr>
