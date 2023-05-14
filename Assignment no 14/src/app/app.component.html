@@ -1,0 +1,135 @@
+<!-- <div class="container"> -->
+
+
+<div class="container">
+  <!-- <div class="col-sm-12"> -->
+  <div class="row">
+    <img
+      src="https://thumbs.dreamstime.com/z/customer-service-care-icon-special-blue-banner-backgr-isolated-background-abstract-illustration-127878574.jpg"
+      alt="..." class="img-responsive" style="max-width:100%">
+  </div>
+</div>
+<h2 style="text-align: center;" for="">Contact Information</h2>
+<p style="text-align: center;">Please fill out the contact information below</p>
+
+
+<div class="container">
+  <form [formGroup]="MarvelForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group required1">
+          <label class=" control-label" for="name">Name</label>
+          <!-- <label style="color: red" for="name">*</label> -->
+
+          <input [ngClass]="{'is-invalid': f.FirstName.errors}" formControlName="FirstName" type="text"
+            class="form-control">
+          <small for="">First Name</small>
+          <div *ngIf="f.FirstName.errors">
+            <div class="red" *ngIf="f.FirstName.errors.required">First Name is required</div>
+            <div class="red" *ngIf="f.FirstName.errors.pattern">Only alphabet is allowed</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div style="padding-top: 2rem;" class="form-group">
+          <input formControlName="LastName" type="text" class="form-control">
+          <small for="">Last Name</small>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="name">Phone</label>
+          <label style="color: red" for="name">*</label>
+
+          <input formControlName="Phone" type="text" class="form-control" [ngClass]="{'is-invalid':f.Phone.errors}">
+
+          <div *ngIf="f.Phone.errors" class="red">
+            <div *ngIf="f.Phone.errors.required" class="red">Phone no is required</div>
+            <div *ngIf="f.Phone.errors.pattern">Only digits allowed</div>
+            <div *ngIf="f.Phone.errors.maxlength">Cut digits it should be 10 digits</div>
+            <div *ngIf="f.Phone.errors.minlength">Add digits it should be 10 digits</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="name">Email</label>
+          <label style="color: red" for="name">*</label>
+
+          <input formControlName="Email" type="text" class="form-control" [ngClass]="{'is-invalid':f.Email.errors}">
+          <div *ngIf="f.Email.errors" class="red">
+            <div *ngIf="f.Email.errors.required" class="red">Email is required</div>
+            <div *ngIf="f.Email.errors.pattern">Enter correct order Email</div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="name">City</label>
+          <label style="color: red" for="name">*</label>
+          <input formControlName="City" type="text" class="form-control" [ngClass]="{'is-invalid':f.City.errors}">
+          <div *ngIf="f.City.errors" class="red">
+            <div *ngIf="f.City.errors.required" class="red">City is required</div>
+            <div *ngIf="f.City.errors.pattern">City name must be minimum 4 alphabet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="state">State</label>
+          <label style="color: red" for="name">*</label>
+          <select formControlName="State" name="state" id="state" class="form-control">
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Gujrat">Gujrat</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="name">ZIP Code</label>
+          <label style="color: red" for="name">*</label>
+          <input formControlName="ZipCode" type="text" class="form-control" [ngClass]="{'is-invalid':f.ZipCode.errors}">
+          <div *ngIf="f.ZipCode.errors" class="red">
+            <div *ngIf="f.ZipCode.errors.required" class="red">ZipCode is required</div>
+            <div *ngIf="f.ZipCode.errors.pattern">ZipCode name must be of 5 digits</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="name">Comment</label>
+          <label style="color: red" for="name">*</label>
+          <input formControlName="Comment" type="text" class="form-control" [ngClass]="{'is-invalid':f.Comment.errors}">
+          <div *ngIf="f.Comment.errors" class="red">
+            <div *ngIf="f.Comment.errors.required" class="red">Comment is required</div>
+            <div *ngIf="f.Comment.errors.minlength">Comment should be minimum 30 characters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="text-center">
+      <button class="btn btn-success btn-lg " type="submit">Submit Form</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<button class="btn btn-info" (click)="display()">Generate</button>
